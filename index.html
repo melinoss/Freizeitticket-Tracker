@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123b35">
+<meta name="description" content="Persönlicher Freizeitticket Tirol Tracker – Nutzungen, Einzelpreise und Break-even im Blick.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Freizeitticket Tracker</title>
+<style>
+:root{--ink:#172d2a;--muted:#6c7d79;--paper:#f5f7f3;--card:#fff;--line:#dfe7e1;--green:#16734a;--greenbg:#e3f6e9;--red:#b93838;--redbg:#fff0ed;--accent:#c5f36a;--dark:#123b35;--shadow:0 10px 30px rgba(18,59,53,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0}.shell{max-width:920px;margin:0 auto;padding:20px 16px 50px}.hero{background:var(--dark);color:#fff;border-radius:26px;padding:24px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:rgba(197,243,106,.11);right:-75px;top:-85px}.eyebrow{font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:#c5f36a;font-weight:800}.hero h1{font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.05;margin:8px 0 6px;letter-spacing:-.04em}.sub{color:#d0dfd9;margin:0 0 20px}.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}.metric{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:13px}.metric small{display:block;color:#d0dfd9;font-size:.75rem;margin-bottom:5px}.metric strong{font-size:clamp(1.1rem,4vw,1.65rem);letter-spacing:-.03em}.status{margin-top:12px;padding:12px 14px;border-radius:13px;font-weight:750}.status.red{background:var(--redbg);color:var(--red)}.status.green{background:var(--greenbg);color:var(--green)}.progress{height:9px;border-radius:999px;background:rgba(255,255,255,.18);margin-top:15px;overflow:hidden;position:relative;z-index:1}.progress span{height:100%;display:block;width:0;background:var(--accent);border-radius:999px;transition:width .25s}.progress-label{display:flex;justify-content:space-between;color:#d0dfd9;font-size:.78rem;margin-top:7px;position:relative;z-index:1}.tabs{display:flex;gap:8px;margin:18px 0;overflow:auto;padding-bottom:2px}.tab{background:#e8eee8;color:#39524b;padding:10px 15px;border-radius:999px;font-weight:750;white-space:nowrap}.tab.active{background:var(--dark);color:#fff}.panel{display:none}.panel.active{display:block}.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}h2{font-size:1.15rem;margin:0 0 14px;letter-spacing:-.02em}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.82rem;font-weight:750;color:#52655f}.field input,.field select{width:100%;border:1px solid #d5dfd8;background:#fff;border-radius:12px;padding:12px;color:var(--ink);min-height:46px}.hint{font-size:.77rem;color:var(--muted)}.primary{background:var(--dark);color:#fff;border-radius:13px;padding:13px 17px;font-weight:800}.secondary{background:#e8eee8;color:var(--dark);border-radius:12px;padding:11px 13px;font-weight:750}.danger{background:var(--redbg);color:var(--red);border-radius:10px;padding:8px 10px;font-weight:750}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.entry-list{display:flex;flex-direction:column;gap:9px}.entry{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:14px}.entry-title{font-weight:800}.entry-meta{font-size:.8rem;color:var(--muted);margin-top:2px}.entry-value{text-align:right;font-weight:850}.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed #cdd9d1;border-radius:14px}.tag{display:inline-block;border-radius:999px;background:#edf2ee;color:#53645d;font-size:.7rem;font-weight:800;padding:3px 8px;margin-top:5px}.settings-note{background:#f7f8f3;border-radius:12px;padding:12px;font-size:.82rem;color:#55665f}.small{font-size:.8rem;color:var(--muted)}.footer{color:var(--muted);font-size:.76rem;text-align:center;margin:22px 0}.hidden{display:none!important}.inline-check{display:flex;align-items:center;gap:8px;font-size:.9rem}.inline-check input{width:18px;height:18px}.toprow{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.toprow h2{margin:0}.link{color:#126b55;text-decoration:underline}.pill{font-size:.75rem;border-radius:999px;padding:5px 9px;background:#edf2ee;color:#52655f}
+@media(max-width:560px){.shell{padding:12px 11px 35px}.hero{padding:20px 16px;border-radius:22px}.hero-grid{grid-template-columns:1fr 1fr}.metric:last-child{grid-column:1/-1}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:15px}.entry{grid-template-columns:1fr auto}.entry-value{font-size:.95rem}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="hero">
+  <div class="eyebrow">Dein Saison-Tracker · 2026/27</div>
+  <h1>Freizeitticket<br>Tracker</h1>
+  <p class="sub">Jede Nutzung zählt. Behalte deinen Gegenwert im Blick.</p>
+  <div class="hero-grid">
+    <div class="metric"><small>Gegenwert bisher</small><strong id="totalValue">0,00 €</strong></div>
+    <div class="metric"><small>Kaufpreis</small><strong id="purchaseValue">789,00 €</strong></div>
+    <div class="metric"><small>Nutzungen</small><strong id="usageCount">0</strong></div>
+  </div>
+  <div id="status" class="status red">Noch 789,00 € bis zum Break-even</div>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div class="progress-label"><span id="progressPercent">0 % erreicht</span><span>Break-even</span></div>
+</header>
+
+<nav class="tabs" aria-label="Navigation">
+  <button class="tab active" data-tab="add">＋ Nutzung</button>
+  <button class="tab" data-tab="history">Verlauf</button>
+  <button class="tab" data-tab="settings">Einstellungen</button>
+</nav>
+
+<section id="panel-add" class="panel active">
+  <div class="card">
+    <h2>Neue Nutzung eintragen</h2>
+    <form id="entryForm">
+      <div class="formgrid">
+        <div class="field full"><label for="place">Bahn oder Einrichtung</label><input id="place" list="places" placeholder="z. B. Nordkette" required autocomplete="off"><datalist id="places"></datalist></div>
+        <div class="field"><label for="category">Kategorie</label><select id="category"><option>Bergbahn / Skigebiet</option><option>Museum / Kultur</option><option>Swarovski Kristallwelten</option><option>Schwimmbad / Badesee</option><option>Eislaufplatz</option><option>Sonstige Leistung</option></select></div>
+        <div class="field"><label for="date">Datum</label><input id="date" type="date" required></div>
+        <div class="field"><label for="price">Regulärer Einzelpreis (€)</label><input id="price" type="number" min="0" step="0.10" placeholder="Preis eintragen" required></div>
+        <div class="field"><label for="visitType">Art der Nutzung</label><select id="visitType"><option>Tagesticket / Eintritt</option><option>Berg- und Talfahrt</option><option>Einfache Fahrt</option><option>Tourengeher-Ticket</option><option>Figl-Ticket</option><option>Andere / Sondertarif</option></select></div>
+        <div class="field full"><label for="note">Notiz (optional)</label><input id="note" placeholder="z. B. Skitour, mit Freunden, Sondertarif"></div>
+      </div>
+      <p id="priceHint" class="hint">Wenn ein Richtpreis hinterlegt ist, wird er vorgeschlagen. Bitte Tarif und Sonderregelungen prüfen.</p>
+      <div class="actions"><button class="primary" type="submit">Nutzung speichern</button><button class="secondary" type="button" id="clearForm">Zurücksetzen</button></div>
+    </form>
+  </div>
+  <div class="card">
+    <div class="toprow"><h2>Zuletzt genutzt</h2><span class="pill" id="recentCount">0 Einträge</span></div>
+    <div id="recentList" class="entry-list"></div>
+  </div>
+</section>
+
+<section id="panel-history" class="panel">
+  <div class="card">
+    <div class="toprow"><h2>Deine Saison</h2><span class="pill" id="historyTotal">0,00 €</span></div>
+    <div class="field"><label for="searchHistory">Einträge filtern</label><input id="searchHistory" placeholder="Name oder Notiz suchen"></div>
+    <div class="actions"><button class="secondary" id="exportBtn">Daten exportieren</button><button class="secondary" id="importBtn">Backup importieren</button><input id="importFile" type="file" accept="application/json" class="hidden"></div>
+    <p class="small">Deine Einträge bleiben auf diesem Gerät gespeichert. Exportiere gelegentlich ein Backup, bevor du Browserdaten löschst oder das Handy wechselst.</p>
+    <div id="historyList" class="entry-list" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section id="panel-settings" class="panel">
+  <div class="card">
+    <h2>Saison & Kaufpreis</h2>
+    <div class="formgrid">
+      <div class="field"><label for="season">Saison</label><input id="season" value="2026/27"></div>
+      <div class="field"><label for="purchasePrice">Dein Kaufpreis (€)</label><input id="purchasePrice" type="number" min="0" step="1" value="789"></div>
+      <div class="field"><label for="startDate">Saisonstart</label><input id="startDate" type="date" value="2026-10-01"></div>
+      <div class="field"><label for="endDate">Saisonende</label><input id="endDate" type="date" value="2027-09-30"></div>
+    </div>
+    <div class="actions"><button class="primary" id="saveSettings">Einstellungen speichern</button></div>
+    <p class="settings-note">Der Vorverkaufspreis für Erwachsene 2026/27 beträgt laut offizieller Preisliste 789 €. Du kannst den Preis und die Saison jederzeit ändern.</p>
+  </div>
+  <div class="card">
+    <h2>Preisvorschläge verwalten</h2>
+    <p class="small">Die Partnerliste ist eine praktische Auswahlhilfe. Preisvorschläge sind nur Richtwerte und nicht für jede Leistung ein verifizierter Saisonpreis. Prüfe bei variablen Tarifen (z. B. dynamische Skitickets, Sonderfahrten oder begrenzte Museumseintritte) den konkreten Tarif und ändere ihn hier bzw. beim Eintragen.</p>
+    <div class="field"><label for="pricePlace">Einrichtung auswählen</label><select id="pricePlace"></select></div>
+    <div class="formgrid" style="margin-top:10px">
+      <div class="field"><label for="editPrice">Preisvorschlag (€)</label><input id="editPrice" type="number" min="0" step="0.10"></div>
+      <div class="field"><label for="editCategory">Kategorie</label><select id="editCategory"><option>Bergbahn / Skigebiet</option><option>Museum / Kultur</option><option>Swarovski Kristallwelten</option><option>Schwimmbad / Badesee</option><option>Eislaufplatz</option><option>Sonstige Leistung</option></select></div>
+    </div>
+    <div class="actions"><button class="primary" id="savePlacePrice">Vorschlag speichern</button><button class="secondary" id="resetPrices">Preisvorschläge zurücksetzen</button></div>
+  </div>
+  <div class="card">
+    <h2>Installation & Datenschutz</h2>
+    <p>Die App funktioniert offline, sobald sie einmal geladen wurde. Einträge werden lokal im Browser dieses Geräts gespeichert – es gibt kein Benutzerkonto und keinen Server, an den Nutzungsdaten gesendet werden.</p>
+    <p class="small">Für die echte „Zum Home-Bildschirm hinzufügen“-Installation muss der App-Ordner über eine HTTPS-Adresse bereitgestellt werden (z. B. GitHub Pages). Die ZIP-Datei enthält die dafür nötigen Dateien und eine kurze Anleitung. Öffnest du nur die HTML-Datei, funktioniert der Tracker ebenfalls, die PWA-Installation ist dann aber je nach Handy/Browser eingeschränkt.</p>
+    <p><a class="link" href="https://www.freizeitticket.at/sommer/" target="_blank" rel="noopener">Offizielle Partnerliste Sommer</a> · <a class="link" href="https://www.freizeitticket.at/winter/" target="_blank" rel="noopener">Partnerliste Winter</a> · <a class="link" href="https://www.freizeitticket.at/ticket/preise/" target="_blank" rel="noopener">Offizielle Ticketpreise</a></p>
+    <div class="actions"><button class="danger" id="deleteAll">Alle Nutzungen löschen</button></div>
+  </div>
+</section>
+<div class="footer">Freizeitticket Tracker · private, lokale Helfer-App · kein offizielles Produkt des Freizeittickets Tirol</div>
+</div>
+<script>
+const STORAGE_KEY='ftt-tracker-2026-v1';
+const DEFAULTS = [
+["Axamer Lizum","Bergbahn / Skigebiet",62],["Bergeralm / Steinach","Bergbahn / Skigebiet",62],["Bergbahnen Rosshütte Seefeld","Bergbahn / Skigebiet",62],
+["Elferbahnen","Bergbahn / Skigebiet",42],["Glungezerbahn","Bergbahn / Skigebiet",58],["Hochzeiger","Bergbahn / Skigebiet",62],["Kühtai","Bergbahn / Skigebiet",62],
+["Muttereralm","Bergbahn / Skigebiet",58],["Nordkette","Bergbahn / Skigebiet",59],["Patscherkofelbahn","Bergbahn / Skigebiet",36],["Rangger Köpfl","Bergbahn / Skigebiet",49],
+["Schlick 2000","Bergbahn / Skigebiet",62],["Serlesbahnen","Bergbahn / Skigebiet",39],["Silvretta Arena Ischgl","Bergbahn / Skigebiet",79],
+["Ski Arlberg / St. Anton","Bergbahn / Skigebiet",85],["Sonnenbahn Milders","Bergbahn / Skigebiet",20],["Stubaier Gletscher","Bergbahn / Skigebiet",68],
+["Swarovski Kristallwelten","Swarovski Kristallwelten",27],["Audioversum","Museum / Kultur",12],["Glockenmuseum Grassmayr","Museum / Kultur",9],
+["Hofkirche","Museum / Kultur",8],["Museum Goldenes Dachl","Museum / Kultur",5],["Münze Hall","Museum / Kultur",12],["Stadtarchiv/Stadtmuseum Innsbruck","Museum / Kultur",0],
+["Tirol Panorama","Museum / Kultur",9],["Tiroler Volkskunstmuseum","Museum / Kultur",9],["Zeughaus","Museum / Kultur",9],["Museum Wattens","Museum / Kultur",5],
+["Museum der Völker Schwaz","Museum / Kultur",8],["Tivoli Freibad Innsbruck","Schwimmbad / Badesee",7],["Baggersee Rossau","Schwimmbad / Badesee",7],
+["Natterer See","Schwimmbad / Badesee",8],["Strandperle Seefeld","Schwimmbad / Badesee",8],["Erlebnisschwimmbad Schwaz","Schwimmbad / Badesee",7],
+["Freischwimmbad Steinach","Schwimmbad / Badesee",6],["Völser Badl","Schwimmbad / Badesee",6],["Freibad Wattens","Schwimmbad / Badesee",6],
+["Schwimmbad Hall","Schwimmbad / Badesee",7],["Schwimmbad Inzing","Schwimmbad / Badesee",6],["Schwimmbad Mieders","Schwimmbad / Badesee",6],
+["Schwimmbad Mutters","Schwimmbad / Badesee",6],["Badeanlage Zirl","Schwimmbad / Badesee",6],
+["Hallenbad Amraser Straße","Schwimmbad / Badesee",9],["Hallenbad Höttinger Au","Schwimmbad / Badesee",9],["Hallenbad Olympisches Dorf","Schwimmbad / Badesee",9],
+["Eishalle Götzens","Eislaufplatz",7],["Eishalle Steinach","Eislaufplatz",6],["Eislaufplatz Baggersee","Eislaufplatz",6],["Eislaufplatz Hötting-West","Eislaufplatz",6],
+["Eislaufplatz Igls","Eislaufplatz",6],["Eislaufplatz Schwaz","Eislaufplatz",6],["Eislaufplatz Silz","Eislaufplatz",6],["Eislaufplatz Trins","Eislaufplatz",6],["Eislaufplatz Zirl","Eislaufplatz",6],
+["Seefeld Birkenlift","Bergbahn / Skigebiet",35],["Skilift Geigenbühel","Bergbahn / Skigebiet",20],["Skilift Trins","Bergbahn / Skigebiet",20],["Stans Burglift","Bergbahn / Skigebiet",20],
+["Vögelsberg Wattens","Bergbahn / Skigebiet",20],["Wildstättlift Wattenberg","Bergbahn / Skigebiet",20]
+];
+let state = {settings:{season:'2026/27',purchasePrice:789,startDate:'2026-10-01',endDate:'2027-09-30'}, entries:[], prices:{}};
+function load(){try{const s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');if(s&&s.settings&&Array.isArray(s.entries)){state=s;state.prices=state.prices||{};}}catch(e){}}
+function save(){localStorage.setItem(STORAGE_KEY,JSON.stringify(state));render();}
+function euro(n){return new Intl.NumberFormat('de-AT',{style:'currency',currency:'EUR'}).format(Number(n)||0)}
+function places(){return DEFAULTS.map(([name,category,price])=>({name,category,price: state.prices[name]?.price ?? price,custom:!!state.prices[name]})).sort((a,b)=>a.name.localeCompare(b.name,'de'))}
+function findPlace(name){return places().find(p=>p.name.toLowerCase()===name.trim().toLowerCase())}
+function initLists(){
+ const all=places(); document.getElementById('places').innerHTML=all.map(p=>`<option value="${esc(p.name)}"></option>`).join('');
+ document.getElementById('pricePlace').innerHTML=all.map(p=>`<option value="${esc(p.name)}">${esc(p.name)}</option>`).join('');
+}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function setCategory(cat){document.getElementById('category').value=cat}
+function updatePriceHint(){
+ const name=document.getElementById('place').value; const p=findPlace(name);
+ if(p){document.getElementById('price').value=p.price;document.getElementById('category').value=p.category;document.getElementById('priceHint').textContent='Preisvorschlag: '+euro(p.price)+'. Richtwert – bitte für die konkrete Leistung/Saison prüfen und bei Bedarf überschreiben.';}
+ else {document.getElementById('priceHint').textContent='Für diese Eingabe ist kein Preisvorschlag hinterlegt. Bitte den regulären Erwachsenenpreis eintragen.';}
+}
+function render(){
+ const total=state.entries.reduce((s,e)=>s+Number(e.price||0),0), cost=Number(state.settings.purchasePrice)||0, diff=total-cost, pct=cost>0?Math.min(100,total/cost*100):100;
+ document.getElementById('totalValue').textContent=euro(total);document.getElementById('purchaseValue').textContent=euro(cost);document.getElementById('usageCount').textContent=state.entries.length;
+ const st=document.getElementById('status');st.className='status '+(diff>=0?'green':'red');st.textContent=diff>=0?`Amortisiert! Du hast ${euro(diff)} mehr Gegenwert als bezahlt.`:`Noch ${euro(-diff)} bis zum Break-even.`;
+ document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressPercent').textContent=Math.round(pct)+' % erreicht';
+ document.getElementById('recentCount').textContent=state.entries.length+' Einträge';document.getElementById('historyTotal').textContent=euro(total);
+ document.getElementById('season').value=state.settings.season;document.getElementById('purchasePrice').value=state.settings.purchasePrice;document.getElementById('startDate').value=state.settings.startDate;document.getElementById('endDate').value=state.settings.endDate;
+ renderEntries('recentList',state.entries.slice().sort(sortEntries).slice(0,5),false);renderHistory();
+}
+function sortEntries(a,b){return (b.date||'').localeCompare(a.date||'')||b.created-a.created}
+function renderEntries(id,entries,actions){
+ const el=document.getElementById(id);
+ if(!entries.length){el.innerHTML='<div class="empty">Noch keine Nutzungen eingetragen.<br>Dein erster Besuch zählt!</div>';return}
+ el.innerHTML=entries.map(e=>`<div class="entry"><div><div class="entry-title">${esc(e.place)}</div><div class="entry-meta">${formatDate(e.date)} · ${esc(e.type||'Nutzung')}${e.note?' · '+esc(e.note):''}</div><span class="tag">${esc(e.category||'Sonstiges')}</span></div><div class="entry-value">${euro(e.price)}${actions?`<div style="margin-top:7px"><button class="secondary" onclick="editEntry('${e.id}')">Bearbeiten</button> <button class="danger" onclick="deleteEntry('${e.id}')">Löschen</button></div>`:''}</div></div>`).join('');
+}
+function renderHistory(){
+ const q=document.getElementById('searchHistory').value.toLowerCase().trim();
+ const list=state.entries.slice().sort(sortEntries).filter(e=>[e.place,e.note,e.category,e.type].join(' ').toLowerCase().includes(q));
+ renderEntries('historyList',list,true);
+}
+function formatDate(s){if(!s)return 'Ohne Datum';const [y,m,d]=s.split('-');return `${d}.${m}.${y}`}
+function editEntry(id){
+ const e=state.entries.find(x=>x.id===id);if(!e)return;
+ document.getElementById('place').value=e.place;document.getElementById('category').value=e.category;document.getElementById('date').value=e.date;document.getElementById('price').value=e.price;document.getElementById('visitType').value=e.type;document.getElementById('note').value=e.note||'';
+ document.getElementById('entryForm').dataset.editId=id;document.querySelector('#entryForm button[type=submit]').textContent='Änderungen speichern';switchTab('add');window.scrollTo({top:0,behavior:'smooth'});
+}
+function deleteEntry(id){if(confirm('Diesen Eintrag wirklich löschen?')){state.entries=state.entries.filter(e=>e.id!==id);save()}}
+function switchTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+tab));}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+document.getElementById('place').addEventListener('change',updatePriceHint);
+document.getElementById('place').addEventListener('input',()=>{if(findPlace(document.getElementById('place').value))updatePriceHint()});
+document.getElementById('entryForm').addEventListener('submit',e=>{
+ e.preventDefault();const form=e.currentTarget;const editId=form.dataset.editId;const entry={id:editId||String(Date.now())+Math.random().toString(16).slice(2),place:document.getElementById('place').value.trim(),category:document.getElementById('category').value,date:document.getElementById('date').value,price:Number(document.getElementById('price').value),type:document.getElementById('visitType').value,note:document.getElementById('note').value.trim(),created:Date.now()};
+ if(!entry.place||!entry.date||!Number.isFinite(entry.price)||entry.price<0)return;
+ if(editId){state.entries=state.entries.map(x=>x.id===editId?entry:x);delete form.dataset.editId;}else state.entries.push(entry);
+ form.reset();document.getElementById('date').value=new Date().toISOString().slice(0,10);document.querySelector('#entryForm button[type=submit]').textContent='Nutzung speichern';document.getElementById('priceHint').textContent='Wenn ein Richtpreis hinterlegt ist, wird er vorgeschlagen. Bitte Tarif und Sonderregelungen prüfen.';save();
+});
+document.getElementById('clearForm').addEventListener('click',()=>{const f=document.getElementById('entryForm');f.reset();delete f.dataset.editId;document.getElementById('date').value=new Date().toISOString().slice(0,10);document.querySelector('#entryForm button[type=submit]').textContent='Nutzung speichern';});
+document.getElementById('searchHistory').addEventListener('input',renderHistory);
+document.getElementById('saveSettings').addEventListener('click',()=>{state.settings={season:document.getElementById('season').value||'Neue Saison',purchasePrice:Math.max(0,Number(document.getElementById('purchasePrice').value)||0),startDate:document.getElementById('startDate').value,endDate:document.getElementById('endDate').value};save();alert('Einstellungen gespeichert.');});
+document.getElementById('pricePlace').addEventListener('change',()=>{const p=findPlace(document.getElementById('pricePlace').value);if(p){document.getElementById('editPrice').value=p.price;document.getElementById('editCategory').value=p.category;}});
+document.getElementById('savePlacePrice').addEventListener('click',()=>{const name=document.getElementById('pricePlace').value;state.prices[name]={price:Math.max(0,Number(document.getElementById('editPrice').value)||0),category:document.getElementById('editCategory').value};const idx=DEFAULTS.findIndex(x=>x[0]===name);if(idx>=0)DEFAULTS[idx][1]=state.prices[name].category;initLists();document.getElementById('pricePlace').value=name;save();alert('Preisvorschlag gespeichert.');});
+document.getElementById('resetPrices').addEventListener('click',()=>{if(confirm('Alle eigenen Preisänderungen zurücksetzen?')){state.prices={};initLists();save();document.getElementById('pricePlace').dispatchEvent(new Event('change'));}});
+document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='freizeitticket-backup-'+(state.settings.season||'saison').replace('/','-')+'.json';a.click();URL.revokeObjectURL(a.href);});
+document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
+document.getElementById('importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const s=JSON.parse(await f.text());if(!s.settings||!Array.isArray(s.entries))throw new Error();if(confirm('Backup importieren und aktuelle Daten ersetzen?')){state=s;save();initLists();alert('Backup importiert.')}}catch(err){alert('Datei konnte nicht importiert werden. Bitte ein Tracker-Backup auswählen.')}e.target.value='';});
+document.getElementById('deleteAll').addEventListener('click',()=>{if(confirm('Wirklich ALLE Nutzungen löschen? Diese Aktion kann nicht rückgängig gemacht werden.')){state.entries=[];save();}});
+load();initLists();document.getElementById('date').value=new Date().toISOString().slice(0,10);document.getElementById('pricePlace').dispatchEvent(new Event('change'));render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+</script>
+</body>
+</html>
